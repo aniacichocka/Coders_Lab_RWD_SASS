@@ -1,0 +1,41 @@
+body {
+  color: red;
+}
+
+h2 {
+  color: green;
+}
+
+p {
+  color: blue;
+}
+
+// zadanie 1
+
+// nested - wcięcia odzwierciedlają strukturę klas
+// expanded - wygląd kodu jak w css (najbardziej mi odpowiada, ponieważ ma strukturę jak css, wada - więcej waży)
+// compact - kod w jednej linii
+// compressed - wszystkie własności w jednej linii bez białych znaków
+
+// dwa ostatnie style najmniej ważą, stosowane w produkcji, pierwsze dwa bardziej czytelne i łatwiej widzimy w której linii jest błąd
+
+
+//Zadanie 2
+
+/*Pierwszy rodzaj komentarza - widoczny w css*/
+//Drugi rodzaj komentarza - niewidoczny w css
+
+
+//zadanie 3
+
+$main-color: blue;
+$additional-color: red;
+
+.menu, h2 {
+  color: $main-color;
+}
+
+$padd: 10px 0 10px 0;
+section {
+  padding: $padd;
+}

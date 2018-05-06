@@ -1,0 +1,127 @@
+
+$row-spacing: 12px;
+
+$colors: (
+	header: #783F96,
+	main: #59BFE9,
+    main-med: #F1FB7A,
+	footer: #31ACD5
+);
+
+* {
+    box-sizing: border-box;
+}
+
+.grid-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.row {
+    margin-bottom: $row-spacing;
+    &.main {
+        display: flex;
+        .col:nth-of-child(1){
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    }
+}
+
+.header div {
+    height: 100px;
+    // background-color: map-get($colors, header);
+}
+
+.main div {
+    height: 200px;
+
+    &:nth-of-type(2) {
+        // background-color: map-get($colors, main-med);
+    }
+
+    &:last-child {
+        // background-color: map-get($colors, main);
+    }
+}
+
+.footer div {
+    height: 60px;
+    // background-color: map-get($colors, footer);
+}
+
+.list {
+    div {
+        height: 32px;
+        // background-color: map-get($colors, main);
+    }
+
+    .last div {
+        background-color: white;
+    }
+}
+
+
+//ustawiona szerokość kolumn
+@for $i from 1 through 12 {
+    .col-#{$i} {
+        width: 100% * ($i/12);
+    }
+}
+
+
+@each $color in map-keys($colors) {
+	.color-#{$color} {
+		background-color: map-get($colors, $color);
+	}
+}
+
+
+// Zadanie 2
+
+.flex-container {
+	display: flex;
+	background-color: black;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	max-width: 1000px;
+	height: 180px;
+	overflow: auto;
+
+	img {
+		height: 110px;
+		width: 135px;
+		margin: 0 14px;
+		flex-shrink: 0;
+
+	}
+}
+
+//Zadanie 3
+
+.flex-container-column {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+
+	header {
+		background-color: #da70d5;
+		height: 10vh;
+		flex-shrink: 0;
+	}
+
+	main {
+		background-color: #faecd2;
+		overflow: auto;
+		flex-grow: 1;
+	}
+
+	footer {
+		background-color: #f98054;
+		height: 10vh;
+		flex-shrink: 0;
+	}
+}

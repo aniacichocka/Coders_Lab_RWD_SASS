@@ -1,0 +1,72 @@
+$main-color: red;
+$sec-color: blue;
+$m-width: 1000px;
+
+.main-width {
+  width: $m-width;
+  ul {
+    > li {
+      &:first-child {
+        color: $main-color;
+      }
+    }
+  }
+}
+
+// zadanie 1
+
+.menu {
+  li {
+  display: inline-block;
+  padding-left: 10px;
+  background-color: $sec-color;
+  }
+}
+
+header {
+  border: 1px solid $main-color;
+}
+
+
+
+// zadanie 2 //kaskadowość!
+
+.my-list {
+  li {
+    &:first-child {
+      color: orange;
+      a {
+        color: orange;
+      }
+    }
+    &:last-child {
+      color: green;
+      a {
+        color: green;
+      }
+    }
+    a {
+      &:hover {
+        color: $main-color;
+      }
+    }
+  }
+}
+
+// zadanie 3
+
+footer {
+  .menu {
+    overflow:hidden;
+    li {
+      display: inline-block;
+      float: left;
+      &:hover {
+        color: yellow;
+      }
+      &:last-child {
+        float: right;
+      }
+    }
+  }
+}

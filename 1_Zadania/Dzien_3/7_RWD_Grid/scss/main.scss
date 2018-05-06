@@ -1,0 +1,118 @@
+// zadanie z wykładowcą
+
+$gutter: 12px;
+$row-spacing: 12px;
+@mixin styles($new-color, $height) {
+    background-color: $new-color;
+    height: $height;
+}
+
+.grid-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+
+    .row {
+        box-sizing: border-box;
+        margin-bottom: $row-spacing;
+        &:before, &:after {
+            content : "";
+            display : table;
+            clear: both;
+        }
+
+        [class*='col-'] {
+            box-sizing: border-box;
+            float: left;
+            min-height: 1px;
+            width: 100%;
+            padding: $gutter;
+
+            .row {
+                //padding wewn należy zniwelować minusowym marginesem
+                margin-top: -$gutter;
+                margin-right: -$gutter;
+                margin-left: -$gutter;
+                //dodajemy ekstra przestrzeń między wierszami zagnieżdżonymi wewnątrz kolumn
+                margin-bottom: $row-spacing + $gutter;
+            }
+        }
+
+        @media(min-width: 550px){
+            // .col-1 {
+            //     float: left;
+            //     width: 100% /12;
+            // }
+            // .col-2 {
+            //     float: left;
+            //     width: 100%/6;
+            //     width: 100% * (2/12);
+            // }
+            @for $i from 1 through 12 {
+                >.col-#{$i} {
+                    width: 100% * ($i/12);
+                }
+            }
+        }
+    }
+
+
+// zadanie 1
+
+
+    div.header {
+        background-color: violet;
+        height: 100px;
+        // @include styles(violet, 100px);
+    }
+
+    div.first {
+        > div {
+            background-color: blue;
+            height: 30px;
+            // @include styles(blue, 30px);
+        }
+    }
+
+    div.second {
+        background-color: yellow;
+        height: 190px;
+        // @include styles(yellow, 190px);
+    }
+
+    div.third {
+        background-color: blue;
+        height: 190px;
+        // @include styles(blue, 190px);
+    }
+
+    div.footer {
+        background-color: blue;
+        height: 70px;
+        // @include styles(blue, 70px);
+    }
+
+
+
+    //drugie rozwiązanie
+
+//     $colors: (
+// 	violet: #783F96,
+// 	cyan: #59BFE9,
+// 	blue: #31ACD5,
+// 	yellow: #F1FB7A
+// );
+//
+// @each $color in map-keys($colors) {
+// 	.color-#{$color} {
+// 		background-color: map-get($colors, $color);
+// 	}
+// }
+//
+// @for $i from 1 through 12 {
+// 	.height-#{$i} {
+// 		height: #{$i}em;
+// 	}
+// }
+}

@@ -1,0 +1,47 @@
+
+$row-spacing: 30px;
+$main-color: lightgrey;
+$menu-color: #f0c75e;
+$focus-color: #999999;
+
+body {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.header {
+	background-color: $menu-color;
+	span {
+		font-size: 20px;
+		text-transform: uppercase;
+	}
+}
+
+.main-headlines {
+	background-color: $main-color;
+}
+
+.row,
+main img {
+	margin-bottom: $row-spacing;
+}
+
+button {
+	margin-left:50%;
+	margin-bottom: 30px;
+	transform: translate(-50%, 0);
+	&:hover {
+		background-color: $focus-color;
+	}
+}
+
+footer {
+	background-color: $main-color;
+	&.row {
+		margin-bottom: 0;
+	}
+	span {
+		margin-left: 25px;
+	}
+}

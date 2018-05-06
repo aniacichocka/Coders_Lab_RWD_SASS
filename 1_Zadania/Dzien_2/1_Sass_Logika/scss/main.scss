@@ -1,0 +1,58 @@
+//zadanie z wykładowcą
+
+$main-font-size: 14px;
+$main-line-height: 16px;
+$colors: red, green, blue, black;
+
+html {
+  font-size: $main-font-size;
+  line-height: $main-line-height;
+}
+
+@for $i from 1 through 4 {
+  h#{$i} {
+    $x: 5-$i;
+    font-size: $main-font-size * $x;
+    line-height: $main-line-height * $x;
+    color: nth($colors, $i);
+  }
+}
+
+
+// Zadanie 1
+
+$timeOfDay: midday;
+
+@mixin bpage($timeOfDay) {
+  @if $timeOfDay == morning{
+    background-color: orange;
+  }@else if $timeOfDay == midday {
+    background-color: yellow;
+  }@else if $timeOfDay == evening {
+    background-color: navy;
+  }@else if $timeOfDay == night {
+    background-color: black;
+  }
+}
+
+body {
+  @include bpage($timeOfDay);
+}
+
+
+// Zadanie 2
+
+div {
+  width: 300px;
+  height: 200px;
+
+  @for $i from 1 through 10 {
+    &.block_#{$i} {
+      $color: orange;
+      @if $i % 2 == 1 {
+        $color: blue;
+      }
+      border: 5px solid $color;
+    }
+  }
+}

@@ -1,0 +1,41 @@
+// Zadanie 1
+
+$tool-color: green;
+$text:"Tekst Tooltipa";
+
+@mixin setTooltip($text, $tool-color) {
+  color: $tool-color;
+}
+
+.lista {
+  position: relative;
+}
+
+.lista:hover {
+  &::after {
+    @include setTooltip($text, $tool-color);
+    content: $text;
+    font-size: 20px;
+    top: 20px;
+    left: 20%;
+    z-index: 1;
+    position:absolute;
+  }
+}
+
+
+// Zadanie 2
+
+$font-sizes: (
+ fs1: 100px,
+ fs2: 50px,
+ fs3: 6px
+ );
+
+$font-list: map-values($font-sizes);
+
+ @for $i from 1 through 3 {
+   h#{$i} {
+     font-size: nth($font-list, $i);
+   }
+ }

@@ -1,0 +1,62 @@
+//zadanie z wykładowcą
+
+$color: #ccc, #999, #555;
+$sizes: (
+  large: 1000px,
+  medium: 500px,
+  small: 100px
+);
+
+body {
+  background-color: nth($color, 1);
+  width: map-get($sizes, large);
+}
+
+header {
+  background-color: nth($color, 2);
+  width: map-get($sizes, medium);
+}
+
+section {
+  &.main-width {
+    background-color: nth($color, 3);
+    width: map-get($sizes, small);
+  }
+}
+
+
+//Zadanie 1
+
+$colors1: (
+col1: blue,
+col2: pink,
+col3: lightgreen,
+col4: gray,
+col5: red
+);
+
+body {
+  background-color: map-get($colors1, col2);
+}
+
+p {
+  background-color: map-get($colors1, col3);
+}
+
+footer {
+  background-color: map-get($colors1, col5);
+}
+
+// Zadanie 2
+
+$width: (
+  min: 100px,
+  max: 500px
+);
+
+$listWidth: map-values($width);
+
+.menu {
+  width: nth($listWidth, 1);
+  background-color: map-get($colors1, col4);
+}

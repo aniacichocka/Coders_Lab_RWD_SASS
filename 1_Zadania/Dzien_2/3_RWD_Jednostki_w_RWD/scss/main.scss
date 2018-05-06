@@ -1,0 +1,151 @@
+// zadanie z wykładowcą
+
+.test {
+    font-size: 20px;
+
+    p {
+        font-size: 2rem; //16px domyslne x 2
+    }
+
+    span {
+        font-size: 2em; //40px 20px x2
+    }
+
+    strong {
+        font-size: 150%; //20px x 150% = 30px
+    }
+}
+
+
+// zadanie 1
+
+section {
+	&.panel {
+		font-size: 40px;
+
+		p {
+			font-size: .5em;
+		}
+	}
+}
+
+
+// zadanie 2
+section {
+    &.bg_box {
+        font-size: 15px;
+
+        div.box {
+            font-size: 2em; //30 px
+            width: 2em;//60px;
+        }
+
+    }
+}
+
+
+// zadnanie 3
+
+html {
+    font-size: 8px;
+}
+
+section.container {
+    p {
+        font-size: 3rem; //24px
+    }
+}
+
+// zadanie 4
+
+section.container {
+    .wolf_text {
+        border: 1px solid black;
+        width: 30rem; //240px
+        box-sizing: border-box;
+    }
+}
+
+
+// zadanie 5
+
+section.winnie_the_pooh {
+    font-size: 10px;
+
+    blockquote {
+        font-size: 300%; //30px
+    }
+}
+
+
+// zadanie 6 i 7
+
+section.images {
+	width: 80%;
+	/*
+		Zadanie 7
+		Po zakomentowaniu width: 80%; sekcja zajmie całą
+		dostępną szerokość
+    szerokość .img_one będzie równa 30% szerokości
+    ekranu
+	*/
+	height: 500px;
+	border: 1px solid orange;
+	.img_one {
+		background-image: url('../images/cat.jpg');
+		height: 30%; // 500px * 30% = 150px
+		width: 30%; // 80% * 30% = 24% szerokości ekranu
+	}
+}
+
+
+
+// zadanie 8 i 9
+
+section.test_height_grandpa {
+	height: 50px;
+
+	div {
+		box-sizing: border-box;
+	}
+
+	> div {
+		border: 1px solid red;
+		> div {
+			border: 1px solid green;
+		}
+	}
+
+	.test_height_daddy {
+		height: 200%; // 50px * 200% = 100px
+		/*
+			Zadanie 9
+			Po zakomentowaniu height: 200% wysokość
+			dostosuje się do zawartości tekstu w divie
+		*/
+	}
+
+	.test_height_baby {
+		height: 50%; // 100px * 50% = 50px;
+		/*
+			Zadanie 9
+			Po zakomentowaniu wysokości .test_height_daddy
+			height: 50% jest pomijane, bo nie podano
+			wysokość parenta.
+		*/
+	}
+}
+
+
+//zadanie 10
+
+section.centered_text {
+    width: 40vw;
+    height: 40vh;
+    margin: 30vh auto;
+    background-color: green;
+    line-height: 40vh;
+    text-align: center;
+}
+
+// viewport zawsze dostosowuje sie do wielkości ekranu

@@ -1,0 +1,79 @@
+//Zadania z wykładowcą
+
+$lred: lighten(red, 40%);
+
+body {
+  background-color: $lred;
+}
+
+// $color: black;
+//
+// @for $i from 1 through 4 {
+//   h#{$i} {
+//     color: lighten($color,($i - 1) * 15%);
+//   }
+// }
+
+//drugie rozwiązanie
+$color2: black;
+
+@for $i from 1 through 4 {
+  h#{$i} {
+    color: $color2;
+  }
+  $color2: lighten($color2, 15%);
+}
+
+// Zadanie 1
+
+$number: 4;
+$perc: percentage($number);
+
+p {
+  font-size: $perc;
+}
+
+// p {
+//   font-size: percentage($number);
+// }
+
+
+// Zadanie 2
+
+$color3: red;
+$color4: yellow;
+$mixcol: mix($color3, $color4);
+
+p {
+  background-color: $mixcol;
+}
+
+// Zadanie 3
+
+// $num1: 5;
+// $num2: 3;
+
+@function sum($num1, $num2) {
+  @return ($num1 + $num2);
+}
+
+h4 {
+  // font-size: sum(15px, 13px);
+  // font-size: #{sum(10, 6)}px;
+  font-size: sum(10, 6)+px;
+}
+
+
+//
+// .zad3 {
+// 	font-size: #{sum(10, 6)}px;
+	/*
+		Dodatkowo QUIZ dla kursantów:
+		Czym różni się powyższy zapis od
+		font-size: sum(10, 6)px;
+		?
+		Odpowiedź: wartość będzie miała niewłaściwą
+		jednostkę "16 px" (ze spacją).
+		Dlatego w takich sytuacjach stosujemy interpolację.
+	*/
+// }

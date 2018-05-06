@@ -1,0 +1,58 @@
+//Zadanie z wykładowcą
+
+@mixin clearfix(){
+  &:before, &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin box($color, $float, $width, $height){
+  float:  $float;
+  height: $height;
+  width: $width;
+  border: 1px solid $color;
+}
+
+section {
+  &.test-mixin {
+    @include clearfix();
+
+    >.left_box {
+      @include box(red, left, 600px, 50px)
+    }
+
+    >.right_box {
+      @include box(blue, right, 400px, 60px)
+    }
+  }
+}
+
+//zadanie 1
+
+@mixin border($color){
+  border-top:1px solid $color;
+  border-right:1px solid lighten($color, 20%);
+  border-bottom: 2px dashed darken($color, 20%);
+  border-left:0;
+  border-radius: 5px;
+}
+
+header {
+  @include border(green);
+}
+
+//zadanie 2
+
+@mixin arrowUp($colorTwo) {
+  width: 0;
+  height: 0;
+  border-left: 35px solid transparent;
+  border-right: 35px solid transparent;
+  border-bottom: 35px solid $colorTwo;
+}
+
+.arrow-up {
+  @include arrowUp(blue);
+}

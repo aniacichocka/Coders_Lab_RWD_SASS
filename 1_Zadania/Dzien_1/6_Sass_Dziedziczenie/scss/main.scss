@@ -1,0 +1,120 @@
+//zadanie z wykładowcą
+
+%clearfix {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+%box {
+  width: 500px;
+  height: 50px;
+  border: 1px solid blue;
+}
+
+
+section {
+  &.test-mixin {
+    &:before {
+      @extend %clearfix;
+    }
+    &:after {
+      @extend %clearfix;
+    }
+  }
+
+  .left_box {
+    @extend %box;
+  }
+  .right_box {
+    @extend %box;
+    border-color: red;
+  }
+
+}
+
+
+// Zadanie 1
+
+%a {
+  color: #666;
+}
+
+#admin .nav a {
+  color: #333;
+}
+
+a {
+    @extend %a;
+}
+
+#demo .body .link {
+  @extend %a;
+}
+
+%link {
+	color: red;
+}
+a {
+	@extend %link;
+}
+.error {
+	@extend %link;
+	border-color: red;
+}
+a:hover {
+	color: #333; text-decoration: underline;
+}
+
+//Zadanie 2
+
+%boxStyle {
+  width: 300px;
+  height: 100px;
+  margin-bottom: 20px;
+  border: 1px solid green;
+  background-color: lightgreen;
+}
+
+.success {
+  @extend %boxStyle;
+}
+.error {
+  @extend %boxStyle;
+  border-color: red;
+  background-color: lightpink;
+}
+.info {
+  @extend %boxStyle;
+  border-color: blue;
+  background-color: lightblue;
+}
+
+
+// %box2 {
+// 	border: 1px solid #222;
+// 	color: #222;
+// 	padding: 10px;
+// 	margin: 10px 0;
+// 	height: 100px;
+// 	width: 500px;
+// }
+//
+// @mixin box($back-color, $border-color) {
+// 	@extend %box2;
+// 	background-color: $back-color;
+// 	border-color: $border-color;
+// }
+//
+// section.container {
+// 	.success {
+// 		@include box(#EFFEB9, #DCE7B7);
+// 	}
+// 	.error {
+// 		@include box(#FBC9C0, #E9C1B8);
+// 	}
+// 	.info {
+// 		@include box(#D3E2F5, #C4D4E5);
+// 	}
+// }

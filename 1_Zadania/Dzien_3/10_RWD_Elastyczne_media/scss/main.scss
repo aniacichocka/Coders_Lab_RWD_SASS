@@ -1,0 +1,71 @@
+// zadanie z wykładowcą
+
+@mixin tablet {
+    @media screen and (max-width: 1023px){
+        @content;
+    }
+}
+
+.images {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+
+    @include tablet {
+        flex-wrap: wrap;
+    }
+
+    div {
+        flex: 1 auto;
+        width: 100%;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .img-rabbit {
+        background-image: url('../images/rabbit.png');
+        background-size: contain; /*cover, contain, 100%, auto*/
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+// Obraz z taga img wypełni całość .one-image. Problem polega na tym,
+// że gdy poda się wartość absolutną do rozmiarów one-image, to obraz
+// nie jest responsywny. Jeżeli poda się rozmiar one-image w niewłaściwych
+// proporcjach, wówczas obrazek img będzie zdeformowany.
+
+
+// zadanie 1
+
+.one-image {
+    height: 100vh;
+    width: 100%;
+    border: 2px solid red;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+// img przyjmuje wielkość rodzica nie zachowując proporcji - bo jest ustawiona wysokość rodzica, wysokośc rodzica musi być na auto lub jej nie okreslać.
+
+
+// zadanie 2
+
+.one-image-bg {
+    height: 100vh;
+    width: 400px;
+    border: 2px solid blue;
+    background-image: url('../images/rabbit.png');
+    background-size: 50%;
+    background-repeat: no-repeat;
+}
+
+//img na szerokość zajmuje 50% rodzica, widoczny jest cały

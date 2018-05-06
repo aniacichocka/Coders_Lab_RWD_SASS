@@ -1,0 +1,95 @@
+// zadanie z wykładowcą 1 //dwa sposoby
+body {
+    background-color: blue;
+
+    @media(max-width: 419px) {
+        background-color: yellow;
+    }
+    // @media(min-width: 420px){
+    //     background-color: blue;
+    // }
+}
+
+
+// zadanie z wykładowcą 2
+@mixin placeholder {
+    @media screen {
+        &::placeholder {
+            @content;
+        }
+    }
+}
+
+form.my-form {
+    input, textarea {
+        @include placeholder {
+            color:red;
+        }
+    }
+}
+
+
+// zadanie 1
+
+//dostosowuje sie do wielkosci ekranu
+//500px majac initial-scale powyzej tej wartosci sie nie skaluje
+
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+form.my-form {
+    border: 1px solid black;
+}
+
+
+/* Uwagi do pliku HTML */
+/*
+      width=device-width spowoduje ustawienie szerokości strony o wartości szerokości ekranu urządzenia,
+      przy czym szerokość ekranu jest inna dla tybu portrait i landscape.
+      width=500
+        - przez initial-scale=1.0 spowoduje ustawienie szerokości strony na 500px gdy ekran jest mniejszy i przeskaluje zawartość strony,
+          albo dostosuje szerokość strony do szerokości ekranu bez przeskalowania, gdy ekran jest większy niż 500px.
+          W tym ustawieniu tło strony będzie zawsze niebieskie.
+        - gdyby nie było initial-scale, wówczas strona zawsze miałaby 500px szerokości niezależnie od szerokości ekranu,
+          a strona zawsze by się przeskalowała tak, aby zmieścić 500px na dostępnej szerokości ekranu, tło też zawsze będzie niebieskie.
+      width=100
+        - przez initial-scale=1.0 spowoduje ustawienie szerokości 100px i przeskalowanie zawartości gdy szerokość ekranu jest mniejsza od 100px,
+          natomiast gdy ekran jest szerszy niż 100px, to strona ma szerokość ekranu bez przeskalowania zawartości.
+        - gdyby nie było ustawienia initial-scale, wówczas strona zawsze miałaby szerokość 100px i tło strony byłoby żółte,
+          a strona zawsze by się przeskalowała tak, aby zmieścić 100px na dostępnej szerokości ekranu.
+*/
+
+
+//zadanie 2
+
+body {
+    @media(max-width: 399px){
+        background-color: green;
+    }
+    @media(min-width: 400px) and (max-width: 799px){
+        background-color: violet;
+    }
+    @media(min-width: 800px){
+        background-color: orange;
+    }
+}
+
+
+//zadanie 3
+
+body div {
+    height: 300px;
+    width: 300px;
+    float: left;
+    background-color: red;
+    margin-left: 10px;
+
+    @media(max-width: 639px) {
+        width: 100%;
+        // clear:both; tego nie trzeba jak jest 100% szerokości div
+        margin: 0;
+    }
+}

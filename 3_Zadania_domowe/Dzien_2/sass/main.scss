@@ -1,0 +1,83 @@
+// Zadanie 1
+
+section {
+    &.test_units {
+        font-size: 30px;
+        border: 1px solid blue;
+        width: 25em;
+        height: 5em;
+
+        header {
+            font-size: 50%;
+        }
+
+        span {
+            font-size: 1em;
+        }
+    }
+}
+
+
+// Zadanie 2
+
+section {
+    &.blocks {
+        display: flex;
+    }
+}
+
+div {
+    &.block {
+        width: 25%;
+        height: 100vh;
+        border: 1px solid red;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 449px) {
+    section {
+        &.blocks {
+            flex-direction: column;
+            div {
+                &.block {
+                    &:last-of-type {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 450px) and (max-width: 719px) {
+    section {
+        &.blocks {
+            flex-direction: row;
+            div {
+                &.block {
+                    &:first-of-type {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 720px) and (max-width: 1024px) {
+    section {
+        &.blocks {
+            flex-direction: row;
+            div {
+                &.block {
+                    display: none;
+                    &:first-of-type,
+                    &:last-of-type {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}
